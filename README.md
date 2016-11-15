@@ -57,6 +57,9 @@ No additional requirements are necessary except that you should flash the code t
 * Lulzbot Taz 4 3D Printer
 * Laser Cutter
 
+## Images
+
+![alt img] (https://github.com/saishmenon/color-sensor-controlled-by-a-proximity-sensor/Images and Working Video/Image-Back.jpg)
 
 ## Authors
 
