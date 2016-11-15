@@ -1,6 +1,6 @@
 # Realtime Color Sensor controlled by a proximity sensor using Particle Photon
 
-The Realtime Color Sensor controlled by a proximity sensor is second version of the realtime color sensor using particle photon. It senses the color of the object that you want the RGB value of and displays it on an OLED display connected to the photon except in this version, the color sensor is only activated when an object is brought closer to the proximity sensor. This whole circuit is now enclosed in an enclosre to make it work similar to a camera but to get the rgb values of the color it senses.
+The Realtime Color Sensor controlled by a proximity sensor is the second version of the realtime color sensor using particle photon. It senses the color of the object that you want the RGB value of and displays it on an OLED display connected to the photon except in this version, the color sensor is only activated when an object is brought closer to the proximity sensor. This whole circuit is now enclosed in an enclosre to make it work similar to a camera but to get the rgb values of the color it senses.
 
 ## Getting Started
 
@@ -20,7 +20,7 @@ Things you will need to get this to work:
 
 ### Circuit Diagram
 
-
+![circuit diagram](https://cloud.githubusercontent.com/assets/6739924/20318448/4ee76e80-ab38-11e6-9851-c9e40aab4cf8.jpg)
 
 ### Installing
 
