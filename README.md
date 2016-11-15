@@ -59,7 +59,9 @@ No additional requirements are necessary except that you should flash the code t
 
 ## Images
 
-![Image](https://raw.githubusercontent.com/saishmenon/color-sensor-controlled-by-a-proximity-sensor/Images and Working Video/Image-Back.jpg)
+![image-front](https://cloud.githubusercontent.com/assets/6739924/20318273/96d553c0-ab37-11e6-9217-719c6d854952.jpg)
+
+![image-back](https://cloud.githubusercontent.com/assets/6739924/20318281/9debf79a-ab37-11e6-9f69-e3a6af9dc572.jpg)
 
 ## Authors
 
