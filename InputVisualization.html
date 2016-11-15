@@ -1,0 +1,92 @@
+<!--
+        Bouncing beach ball visualization used from "datavizclub.tumble.com" = [http://datavizclub.tumblr.com/post/119132679558/make-a-bouncing-beach-ball-with-d3]
+-->
+
+<!DOCTYPE HTML>
+<html>
+<title>Color Sensor</title>
+<style>    
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: lightskyblue;
+    }
+    
+    #colorCode{
+        margin: 0 auto;
+        color: rgba(255,255,255, 0.8);
+    }
+</style>
+<body>
+    <span id="colorCode"></span><div id="square"></div><br>
+    <br><br>
+
+   
+   <script src='http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+    <script type="text/javascript">
+        
+        //--------------------------------------------------
+        
+        
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        svg.append("rect")
+            .attr("width", width)
+            .attr("height", (height * 0.2))
+            .attr("y", (height * 0.8))
+            .attr("fill","khaki");
+
+        var ball = svg.append("g")
+            .attr("transform","translate(" + (width * 0.5) + "," + (height * 0.5) + ")");
+        
+        
+        //-------------------------------------------------------
+        document.getElementById("colorCode").innerHTML = "Waiting for data...";
+        var deviceID = "2c0047000347343339373536";
+        var accessToken = "6814360a39ee5e3e99bd981ae4c0a68d3ccf19c0";
+        var eventSource = new EventSource("https://api.spark.io/v1/devices/" + deviceID + "/events/?access_token=" + accessToken);
+
+        eventSource.addEventListener('open', function(e) {
+            console.log("Opened!"); },false);
+
+        eventSource.addEventListener('error', function(e) {
+            console.log("Errored!"); },false);
+
+        eventSource.addEventListener('rgbValue', function(e) {
+            var parsedData = JSON.parse(e.data);
+            var colorSpan = document.getElementById("colorCode");
+            console.log(parsedData.data);
+            
+            colorSpan.innerHTML =" Color Sensed: rgb( " + parsedData.data + " )";
+            var $background = "rgb("+parsedData.data+")";
+            console.log($background);
+            colorSpan.style.fontSize = "28px";
+            
+            ball.append("circle")
+            .attr("r", "50px")
+            .attr("fill", $background)
+            .text($background);
+
+        function bounce() {
+            ball.transition()
+                .duration(1500)
+                .ease("cubic-in")
+                .attr("transform","translate(" + (width * 0.5) + "," + (height * 0.8) + "), scale(1.1,0.9)")
+                .transition()
+                .ease("cubic-out")
+                .duration(1500)
+                .attr("transform","translate(" + (width * 0.5) + "," + (height * 0.2) + "), scale(0.9,1.1)")
+                .each("end", bounce);
+        };
+
+        bounce();
+        }, false);
+    </script>
+</body>
+</html>
